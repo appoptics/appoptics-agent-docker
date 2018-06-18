@@ -52,7 +52,7 @@ fi
 
 if [ "$APPOPTICS_ENABLE_MYSQL" = "true" ]; then
     mv /opt/appoptics/etc/plugins.d/mysql.yaml.example /opt/appoptics/etc/plugins.d/mysql.yaml
-    if [[ -n ${MYSQL_USER} && -n ${MYSQL_PASS} && -n ${MYSQL_HOST} && -n ${MYSQL_PORT} ]]; then
+    if [[ -n ${MYSQL_USER} && -n ${MYSQL_HOST} && -n ${MYSQL_PORT} ]]; then
         sed -i -e "s/root:admin\@tcp(mysql:3306)/$MYSQL_USER:$MYSQL_PASS\@tcp($MYSQL_HOST:$MYSQL_PORT)/" /opt/appoptics/etc/plugins.d/mysql.yaml
     fi
 fi
