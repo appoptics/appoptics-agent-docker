@@ -37,6 +37,10 @@ kubectl apply -f appoptics-agent-daemonset.yaml
 
 Enable the Docker plugin in the AppOptics UI and you should start seeing data trickle in.
 
+### Host Network
+
+By default, Kubernetes pods use a namespaced network overlay for all traffic to and from the pod. When network overlay issues occur, this can cause the AppOptics agent to stop reporting. To solve this, the AppOptics Deployment and DaemonSet agent pods run on the host network. To disable this and use the network overlay stack, change `hostNetwork` to `false` in `appoptics-agent-daemonset.yaml` and `appoptics-agent-deployment.yaml`.
+
 ### Sidecar
 
 If you wanted to run this on Kubernetes as a sidecar for monitoring specific services, you can follow the instructions below which use Zookeeper as an example.
@@ -60,16 +64,16 @@ Add a second container to your deployment YAML underneath `spec.template.spec.co
 
 The following environment parameters are available:
 
- Parameter                   | Description
------------------------------|---------------------
- APPOPTICS_TOKEN             | Your AppOptics token. This parameter is required.
- LOG_LEVEL                   | Expected value: DEBUG, INFO, WARN, ERROR or FATAL. Default value is WARN.
- APPOPTICS_HOSTNAME          | This value overrides the hostname tagged for default host metrics. The DaemonSet uses this to override with Node name.
- APPOPTICS_ENABLE_DOCKER     | Set this to `true` to enable the Docker plugin.
- APPOPTICS_ENABLE_KUBERNETES | Set this to `true` to enable the Kubernetes plugin.
- APPOPTICS_DISABLE_HOSTAGENT | Set this to `true` to disable the Host Agent system metrics collection.
- APPOPTICS_ENABLE_ZOOKEEPER  | Set this to `true` to enable the Zookeeper plugin.
- APPOPTICS_ENABLE_MYSQL      | Set this to `true` to enable the MySQL plugin. If enabled the following ENV vars are required to be set as well: MYSQL_USER, MYSQL_PASS, MYSQL_HOST & MYSQL_PORT
+ | Parameter                   | Description                                                                                                                                                      |
+ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+ | APPOPTICS_TOKEN             | Your AppOptics token. This parameter is required.                                                                                                                |
+ | LOG_LEVEL                   | Expected value: DEBUG, INFO, WARN, ERROR or FATAL. Default value is WARN.                                                                                        |
+ | APPOPTICS_HOSTNAME          | This value overrides the hostname tagged for default host metrics. The DaemonSet uses this to override with Node name.                                           |
+ | APPOPTICS_ENABLE_DOCKER     | Set this to `true` to enable the Docker plugin.                                                                                                                  |
+ | APPOPTICS_ENABLE_KUBERNETES | Set this to `true` to enable the Kubernetes plugin.                                                                                                              |
+ | APPOPTICS_DISABLE_HOSTAGENT | Set this to `true` to disable the Host Agent system metrics collection.                                                                                          |
+ | APPOPTICS_ENABLE_ZOOKEEPER  | Set this to `true` to enable the Zookeeper plugin.                                                                                                               |
+ | APPOPTICS_ENABLE_MYSQL      | Set this to `true` to enable the MySQL plugin. If enabled the following ENV vars are required to be set as well: MYSQL_USER, MYSQL_PASS, MYSQL_HOST & MYSQL_PORT |
 
 ## Dashboard
 Successful deployments will report metrics in the AppOptics Kubernetes Dashboard.

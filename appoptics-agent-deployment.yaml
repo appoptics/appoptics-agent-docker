@@ -16,6 +16,8 @@ spec:
         app: appoptics-agent-k8s
     spec:
       serviceAccountName: appoptics-agent-serviceaccount
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
         - name: appoptics-agent-k8s
           image: 'appoptics/appoptics-agent-docker:v0.2'

@@ -15,6 +15,7 @@ spec:
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
+      hostNetwork: true
       containers:
       - name: appoptics-agent-ds
         image: 'appoptics/appoptics-agent-docker:v0.2'
