@@ -38,6 +38,11 @@ if [ -n "$APPOPTICS_HOSTNAME" ]; then
 fi
 
 # Set to true to enable or disable specific plugins
+if [ "$APPOPTICS_ENABLE_APACHE" = "true" ]; then
+    mv /tmp/appoptics-configs/apache.yaml /opt/appoptics/etc/plugins.d/apache.yaml
+    mv /tmp/appoptics-configs/task-aoapache.yaml /opt/appoptics/etc/tasks.d/task-aoapache.yayml
+fi
+
 if [ "$APPOPTICS_ENABLE_DOCKER" = "true" ]; then
     mv /tmp/appoptics-configs/docker.yaml /opt/appoptics/etc/plugins.d/docker.yaml
 fi

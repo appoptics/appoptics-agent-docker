@@ -36,6 +36,8 @@ RUN \
   mkdir -p /tmp/appoptics-configs
 
 COPY ./conf/appoptics-config.yaml /opt/appoptics/etc/config.yaml
+COPY ./conf/appoptics-config-apache.yaml /tmp/appoptics-configs/apache.yaml
+COPY ./conf/appoptics-task-apache.yaml /tmp/appoptics-configs/task-aoapache.yaml
 COPY ./conf/appoptics-config-kubernetes.yaml /tmp/appoptics-configs/kubernetes.yaml
 COPY ./conf/appoptics-config-docker.yaml /tmp/appoptics-configs/docker.yaml
 COPY ./conf/appoptics-init.sh /opt/appoptics/etc/init.sh
