@@ -62,18 +62,22 @@ Add a second container to your deployment YAML underneath `spec.template.spec.co
 
 The following environment parameters are available:
 
- Parameter                   | Description
------------------------------|---------------------
- APPOPTICS_TOKEN             | Your AppOptics token. This parameter is required.
- LOG_LEVEL                   | Expected value: DEBUG, INFO, WARN, ERROR or FATAL. Default value is WARN.
- APPOPTICS_HOSTNAME          | This value overrides the hostname tagged for default host metrics. The DaemonSet uses this to override with Node name.
- APPOPTICS_ENABLE_DOCKER     | Set this to `true` to enable the Docker plugin.
- APPOPTICS_ENABLE_APACHE     | Set this to `true` to enable the Apache plugin.
- APPOPTICS_ENABLE_KUBERNETES | Set this to `true` to enable the Kubernetes plugin. Enabling this option on the DaemonSet will cause  replication of Kubernetes metrics where the replication count is the number of pods with Kubernetes collection enabled minus one.  Typically Kubernetes collection is only enabled on the Deployment asset.
- APPOPTICS_DISABLE_HOSTAGENT | Set this to `true` to disable the Host Agent system metrics collection.
- APPOPTICS_ENABLE_ZOOKEEPER  | Set this to `true` to enable the Zookeeper plugin.
- APPOPTICS_ENABLE_MYSQL      | Set this to `true` to enable the MySQL plugin. If enabled the following ENV vars are required to be set as well: MYSQL_USER, MYSQL_PASS, MYSQL_HOST & MYSQL_PORT
- APPOPTICS_CUSTOM_TAGS       | Set this to a comma separated K=V list to enable custom tags eg. `NAME=TEST,IS_PRODUCTION=false,VERSION=5`
+ Parameter                      | Description
+--------------------------------|---------------------
+ APPOPTICS_TOKEN                | Your AppOptics token. This parameter is required.
+ LOG_LEVEL                      | Expected value: DEBUG, INFO, WARN, ERROR or FATAL. Default value is WARN.
+ APPOPTICS_HOSTNAME             | This value overrides the hostname tagged for default host metrics. The DaemonSet uses this to override with Node name.
+ APPOPTICS_ENABLE_DOCKER        | Set this to `true` to enable the Docker plugin.
+ APPOPTICS_ENABLE_APACHE        | Set this to `true` to enable the Apache plugin.
+ APPOPTICS_ENABLE_ELASTICSEARCH | Set this to `true` to enable the Elasticsearch plugin.
+ APPOPTICS_ENABLE_KUBERNETES    | Set this to `true` to enable the Kubernetes plugin. Enabling this option on the DaemonSet will cause  replication of Kubernetes metrics where the replication count is the number of pods with Kubernetes collection enabled minus one.  Typically Kubernetes collection is only enabled on the Deployment asset.
+ APPOPTICS_ENABLE_MESOS         | Set this to `true` to enable the Mesos plugin.
+ APPOPTICS_ENABLE_MONGODB       | Set this to `true` to enable the MongoDB plugin.
+ APPOPTICS_ENABLE_RABBITMQ      | Set this to `true` to enable the RabbitMQ plugin.
+ APPOPTICS_DISABLE_HOSTAGENT    | Set this to `true` to disable the Host Agent system metrics collection.
+ APPOPTICS_ENABLE_ZOOKEEPER     | Set this to `true` to enable the Zookeeper plugin.
+ APPOPTICS_ENABLE_MYSQL         | Set this to `true` to enable the MySQL plugin. If enabled the following ENV vars are required to be set as well: MYSQL_USER, MYSQL_PASS, MYSQL_HOST & MYSQL_PORT
+ APPOPTICS_CUSTOM_TAGS          | Set this to a comma separated K=V list to enable custom tags eg. `NAME=TEST,IS_PRODUCTION=false,VERSION=5`
 
 ## Dashboard
 Successful deployments will report metrics in the AppOptics Kubernetes Dashboard.
