@@ -26,11 +26,11 @@ spec:
             - name: APPOPTICS_ENABLE_APACHE
               value: 'false'
             - name: APPOPTICS_ENABLE_DOCKER
-              value: 'true'
+              value: 'false'
             - name: APPOPTICS_ENABLE_ELASTICSEARCH
               value: 'false'
             - name: APPOPTICS_ENABLE_KUBERNETES
-              value: 'false'
+              value: 'true'
             - name: APPOPTICS_ENABLE_MESOS
               value: 'false'
             - name: APPOPTICS_ENABLE_MONGODB
