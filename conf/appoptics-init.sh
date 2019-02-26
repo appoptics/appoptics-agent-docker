@@ -46,6 +46,9 @@ fi
 
 if [ "$APPOPTICS_ENABLE_DOCKER" = "true" ]; then
     mv ${PLUGINS_DIR}/docker.yaml.example ${PLUGINS_DIR}/docker.yaml
+    if [[ -n ${HOST_PROC} ]]; then
+        sed -i 's,procfs: "/proc",procfs: "'${HOST_PROC}'",g' ${PLUGINS_DIR}/docker.yaml
+    fi
 fi
 
 if [ "$APPOPTICS_ENABLE_ELASTICSEARCH" = "true" ]; then

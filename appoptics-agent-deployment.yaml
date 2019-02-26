@@ -18,7 +18,7 @@ spec:
       serviceAccountName: appoptics-agent-serviceaccount
       containers:
         - name: appoptics-agent-k8s
-          image: 'appoptics/appoptics-agent-docker:v0.7'
+          image: 'appoptics/appoptics-agent-docker:v0.8'
           imagePullPolicy: Always
           env:
             - name: APPOPTICS_TOKEN
