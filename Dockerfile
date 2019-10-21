@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 LABEL maintainer='Chris Rust <chris.rust@solarwinds.com>'
 
-ENV APPOPTICS_SNAPTEL_VERSION '2.0.0-ao1.1919'
+ARG APPOPTICS_SNAPTEL_VERSION='2.0.0-ao1.1919'
 
 USER root
 ENV DEBIAN_FRONTEND noninteractive
